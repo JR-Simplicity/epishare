@@ -36,7 +36,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/', routes);
+app.use('/api/v1', routes);
 
 // passport config
 var Account = require('./models/account');
@@ -77,6 +77,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
