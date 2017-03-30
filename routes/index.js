@@ -9,10 +9,12 @@ router.get('/', (req, res) => {
 });
 
 router.get('/register', (req, res) => {
+    console.log("received request");
     res.render('register', { });
 });
 
 router.post('/register', (req, res, next) => {
+    console.log("req ", req.body);
     Account.register(new Account({ username : req.body.username }), req.body.password, (err, account) => {
         if (err) {
           return res.render('register', { error : err.message });
